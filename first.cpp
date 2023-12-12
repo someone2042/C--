@@ -1,4 +1,5 @@
 #include <iostream>
+#include<array> 
 using namespace std;
 
 // int** matrice() {
@@ -28,8 +29,9 @@ int* mot() {
     int taille;
     cout << "Enter the size of the word: ";
     cin >> taille;
-    int* T = new int[taille];
-    for (int i = 0; i < taille; i++) {
+    int* T = new int[taille+1];
+    T[0]=taille;
+    for (int i = 1; i < taille+1; i++) {
         cout << "Enter the value of the cell T[" << i << "]: ";
         cin >> T[i];
     }
@@ -37,19 +39,18 @@ int* mot() {
 }
 
 int trace(int M[][3], int* T, int taille) {
-    int tr = M[0][T[0]];
-    int cnt = 1;
-    while (tr!=-1 && cnt<taille) {
+    int tr = M[0][T[1]];
+    int cnt = 2;
+    while (tr!=-1 && cnt<=taille){
+        // cout<<taille;
         tr = M[tr][T[cnt]];
         cnt++;
         cout<<"cnt="<<cnt<<"  tr="<<tr;
     }
-        cout<<"L";
     return tr;
 }
 
 bool reconnaissance(int trace) {
-    cout<<'T';
     return (trace == 3);
 }
 
@@ -57,11 +58,10 @@ int main()
 {
     // int** M;
     int M[4][3]={{1,-1,-1},{1,2,3},{1,-1,-1},{-1,-1,-1}};
-    int* motArray;
+    int *motArray;
     // M = matrice();
     motArray = mot();
-
-    int traceResult = trace(M,motArray,sizeof(motArray)/2);
+    int traceResult = trace(M,motArray,motArray[0]);
 
     if (reconnaissance(traceResult)) {
         cout << "The word is recognized.";
