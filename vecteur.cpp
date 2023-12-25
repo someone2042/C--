@@ -74,7 +74,7 @@ vecteur vecteur::sum(const vecteur&a){
         }
         return A;
     }
-    __throw_bad_alloc;
+    throw 'error';
 }
 int vecteur::operator[](int i){
     return T[i];
@@ -128,16 +128,19 @@ void vecteur::setvalue(int i,float x){
     T[i]=x;
 }
 int main(void){
-    vecteur a(3),b(3);
-    a.setvalue(0,1);
-    a.setvalue(1,1);
-    a.setvalue(2,1);
-    b.setvalue(0,2);
-    b.setvalue(1,2);
-    b.setvalue(2,2);
-    a.show();
-    b.show();
-    a=4*b;
-    cout<<'\n';
-    a.show();
+    // vecteur a(3),b(3);
+    // a.setvalue(0,1);
+    // a.setvalue(1,1);
+    // a.setvalue(2,1);
+    // b.setvalue(0,2);
+    // b.setvalue(1,2);
+    // b.setvalue(2,2);
+    // a.show();
+    // b.show();
+    // a=4*b;
+    // cout<<'\n';
+    // a.show();
+    string a;
+    a="hello";
+    cout<<a;
 }
